@@ -17,3 +17,6 @@ debug/
 coverage/
 **/*.profraw
 **/.DS_Store
+
+# Ignore IDE files
+.idea/

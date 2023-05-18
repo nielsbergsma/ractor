@@ -138,6 +138,12 @@ impl ActorProperties {
             .map_err(|e| MessagingErr::SendErr(TMessage::from_boxed(e.0).unwrap()))
     }
 
+    pub fn send_boxed(&self, message: BoxedMessage) -> Result<(), MessagingErr<BoxedMessage>> {
+        self.message
+            .send(message)
+            .map_err(|e| MessagingErr::SendErr(e.0))
+    }
+
     #[cfg(feature = "cluster")]
     pub fn send_serialized(
         &self,

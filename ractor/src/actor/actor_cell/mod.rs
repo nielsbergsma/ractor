@@ -424,6 +424,11 @@ impl ActorCell {
         self.inner.send_message::<TMessage>(message)
     }
 
+    /// Send a boxed message
+    pub fn send_boxed(&self, message: BoxedMessage) -> Result<(), MessagingErr<BoxedMessage>> {
+        self.inner.send_boxed(message)
+    }
+
     /// Send a serialized binary message to the actor.
     ///
     /// * `message` - The message to send
